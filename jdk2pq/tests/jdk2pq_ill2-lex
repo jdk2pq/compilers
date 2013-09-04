@@ -1,0 +1,7 @@
+var test;
+
+//curly braces not supported, so will go unrecognized
+FOR test = 0 STEP 1 TO 10 DO {
+	test = test + 1;
+}
+END

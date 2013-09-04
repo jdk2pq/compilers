@@ -1,0 +1,21 @@
+VAR jake;
+VAR test;
+VAR three;
+
+jake = 3.14;
+GO 20;
+TURN 90;
+JUMP 10;
+FOR test=1 STEP 2 TO 10 DO
+BEGIN
+	three = sin test;
+	three = three * 3;
+	three = cos three;
+	three = sqrt three;
+END
+
+three = three + 4;
+VAR new = three - 20;
+jake = (three + new) / 5;
+three = sin jake;
+three = three * jake;

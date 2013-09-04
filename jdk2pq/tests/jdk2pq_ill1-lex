@@ -1,0 +1,12 @@
+//camel-casing is illegal, because capital letters are unaccounted for
+VAR yesOrNo;
+VAR x;
+VAR y;
+
+x = 50;
+y = 60;
+
+//no greater than symbol;
+yesOrNo = x > y;
+//no less than symbol;
+yesOrNo = x < y;

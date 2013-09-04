@@ -1,0 +1,4 @@
+//capital letters for variable names are not supported by the lex specifications
+VAR EVERYTHINGINCAPS;
+
+EVERYTHINGINCAPS = 0;

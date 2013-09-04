@@ -1,0 +1,10 @@
+//many symbols are unrecognized, so the @, #, !, ?, &, $, and % will all be unexpected characters
+
+VAR jake@;
+VAR test#;
+VAR three!;
+
+jake ? 3.14;
+GO &20;
+TURN $90;
+JUMP %10;
