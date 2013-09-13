@@ -1,0 +1,24 @@
+VAR yes;
+VAR x;
+VAR y;
+VAR bool;
+
+x = 50;
+y = 60;
+bool = TRUE;
+
+IF (x > y) THEN {
+	RETURN TRUE;	
+} ELSE {
+	RETURN FALSE;
+}
+
+WHILE (x < 55) {
+	JUMP 100;
+	x = x + 1;
+}
+
+IF (bool == TRUE) THEN {
+	RETURN TRUE;
+	bool = FALSE;
+}
