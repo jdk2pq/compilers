@@ -1,0 +1,14 @@
+// cannot use parentheses in definition of for loop. 
+VAR yes;
+VAR hi;
+VAR hello;
+VAR count;
+
+FOR (yes = 3)
+		STEP 20
+	TO 100
+	DO BEGIN
+		count = count + hello * hi / (test - 3);
+		END
+
+later = cos hi * hello + count;

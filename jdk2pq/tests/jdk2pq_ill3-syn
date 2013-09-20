@@ -1,0 +1,11 @@
+// cannot assign variable above for loop if being used in loop; variable must be assigned in the for loop
+VAR hi;
+
+hi = 4;
+
+FOR hi
+		STEP 20
+	TO 100
+	DO BEGIN
+		hi = hi -1;
+		END

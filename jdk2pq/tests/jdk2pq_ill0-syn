@@ -1,0 +1,10 @@
+// must declare variables and then assign them, cannot initialize variables upon declaration according to grammar
+VAR hi = 2;
+VAR hello = 4;
+VAR count;
+VAR test;
+VAR later;
+
+GO 150;
+TURN 180;
+JUMP 50;

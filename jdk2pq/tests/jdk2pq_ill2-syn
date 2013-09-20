@@ -1,0 +1,23 @@
+// cannot define multiple variables on the same line; must have the VAR keyword before each
+VAR hi; hello; count; test; later;
+
+hi = 4;
+hello = 2;
+count = 0;
+
+GO 150;
+TURN 180;
+JUMP 50;
+
+FOR yes = 3
+		STEP 20
+	TO 100
+	DO BEGIN
+		count = count + hello * hi / (test - 3);
+		END
+
+later = cos hi;
+later = sin hi;
+later = sqrt hi;
+later = 3.14;
+later = count;

@@ -1,0 +1,28 @@
+//testing every part of the turtle.y grammar. i know some of this doesn't really make sense programmatically.
+
+VAR hi;
+VAR hello;
+VAR count;
+VAR test;
+VAR later;
+
+hi = 4;
+hello = 2;
+count = 0;
+
+GO 150;
+TURN 180;
+JUMP 50;
+
+FOR yes = 3
+		STEP 20
+	TO 100
+	DO BEGIN
+		count = count + hello * hi / (test - 3);
+		END
+
+later = cos hi;
+later = sin hi;
+later = sqrt hi;
+later = 3.14;
+later = count;
