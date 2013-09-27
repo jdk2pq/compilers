@@ -24,11 +24,25 @@
 #define OPEN 279
 #define CLOSE 280
 #define ASSIGN 281
-
+#define IF 282
+#define ELSE 283
+#define THEN 284
+#define WHILE 285
+#define FALSE 286
+#define TRUE 287
+#define LT 288
+#define GT 289
+#define EQ 290
+#define OPENB 291
+#define CLOSEB 292
+#define RETURN 293
+#define LTE 294
+#define GTE 295
+#define NOTEQ 296
 
 
 typedef union YYSTYPE
 { int i; node *n; double d;}
         YYSTYPE;
-extern YYSTYPE yylval;
+YYSTYPE yylval;
 

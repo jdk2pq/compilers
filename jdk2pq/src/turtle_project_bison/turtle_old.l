@@ -1,11 +1,9 @@
 
 %{
 #include "symtab.h"
-#include "token.h"
+#include "turtle.tab.h"
 %}
 
-DIGIT [0-9]
-ID [a-z]+ 
 %%
 
 \/\/.*          ;
@@ -21,13 +19,6 @@ TO              return TO;
 DO              return DO;
 BEGIN           return COPEN;
 END             return CCLOSE;
-IF              return IF;
-THEN			return THEN;
-ELSE            return ELSE;
-WHILE           return WHILE;
-FALSE			return FALSE;
-TRUE			return TRUE;
-RETURN          return RETURN;
 
 sin             return SIN;
 cos             return COS;
@@ -41,25 +32,17 @@ sqrt            return SQRT;
 \(              return OPEN;
 \)              return CLOSE;
 =               return ASSIGN;
-\<				return LT;
-\<=				return ELT;
-\>				return GT;
-\>=				return EGT;
-==				return EQ;
-\{				return OPENB;
-\}				return CLOSEB;
-\!=				return NOTEQUAL;
 
-{ID}         	{ 
-					yylval.n = lookup(yytext); 
-                	if (yylval.n==NULL)
-		    			yylval.n = insert(yytext);
-                  	return ID;
-				}
+[a-z]+          { yylval.n = lookup(yytext); 
+                  if (yylval.n==NULL)
+		    yylval.n = insert(yytext);
+                  return ID;
+		}
     
-{DIGIT}+"."{DIGIT}*  yylval.d = atof(yytext);  return FLOAT;
-{DIGIT}+         yylval.i = atoi(yytext);  return NUMBER;
+[0-9]+\.[0-9]+  yylval.d = atof(yytext);  return FLOAT;
+[0-9]+          yylval.i = atoi(yytext);  return NUMBER;
 
 .               fprintf(stderr,"Unexpected character %c (%2X)\n",yytext[0],yytext[0]);
 
 %%
+

@@ -22,3 +22,18 @@ IF (bool == TRUE) THEN {
 	RETURN TRUE;
 	bool = FALSE;
 }
+
+IF (bool != TRUE) THEN {
+	RETURN TRUE;
+	bool = FALSE;
+}
+
+IF (bool <= TRUE) THEN {
+	RETURN TRUE;
+	bool = FALSE;
+}
+
+IF (bool >= TRUE) THEN {
+	RETURN TRUE;
+	bool = FALSE;
+}
