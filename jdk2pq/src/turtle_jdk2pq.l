@@ -34,6 +34,8 @@ cos             return COS;
 sqrt            return SQRT;
 
 ;               return SEMICOLON;
+==				return EQ;
+\!=				return NOTEQ;
 \+              return PLUS;
 -               return MINUS;
 \*              return TIMES;
@@ -41,14 +43,12 @@ sqrt            return SQRT;
 \(              return OPEN;
 \)              return CLOSE;
 =               return ASSIGN;
+\<=				return LTE;
+\>=				return GTE;
 \<				return LT;
-\<=				return ELT;
 \>				return GT;
-\>=				return EGT;
-==				return EQ;
 \{				return OPENB;
 \}				return CLOSEB;
-\!=				return NOTEQUAL;
 
 {ID}         	{ 
 					yylval.n = lookup(yytext); 

@@ -15,9 +15,8 @@ int yydebug = 1;
 %token <n> ID               
 %token <i> NUMBER       
 %token SEMICOLON PLUS MINUS TIMES DIV OPEN CLOSE ASSIGN
-%token IF THEN ELSE TRUE FALSE RETURN
-%token LT LESSEQUAL GT GREATEREQUAL EQ NOTEQUAL
-%token OPENB CLOSEB
+%token IF ELSE THEN WHILE FALSE TRUE
+%token LT GT EQ OPENB CLOSEB RETURN LTE GTE NOTEQ
 
 %type <n> decl
 %type <n> decllist
@@ -27,11 +26,11 @@ program: head decllist stmtlist tail;
 
 head: { printf("%%!PS Adobe\n"
                "\n"
-	       "newpath 0 0 moveto\n"
+	       "newpath \n0 0 moveto\n\n"
 	       );
       };
 
-tail: { printf("stroke\n"); };
+tail: { printf("closepath\nstroke\n"); };
 
 decllist: ;
 decllist: decllist decl;
@@ -46,8 +45,11 @@ stmt: ID ASSIGN expr SEMICOLON {printf("/tlt%s exch store\n",$1->symbol);} ;
 stmt: GO expr SEMICOLON {printf("0 rlineto\n");};
 stmt: JUMP expr SEMICOLON {printf("0 rmoveto\n");};
 stmt: TURN expr SEMICOLON {printf("rotate\n");};
-stmt: IF expr  {printf(" if")};
-stmt: ELSE expr {printf(" ifelse");};
+stmt: IF expr OPENB {printf("{ ");} stmtlist CLOSEB cond;
+stmt: WHILE {printf("{ ");} expr OPENB {printf("{} {exit} ifelse\n");} stmtlist CLOSEB {printf("} loop\n");};
+
+cond: {printf("} if\n");};
+cond: {printf("} { ");} ELSE OPENB stmtlist CLOSEB {printf("} ifelse\n");};
 
 stmt: FOR ID ASSIGN expr 
           STEP expr
@@ -55,12 +57,18 @@ stmt: FOR ID ASSIGN expr
 	  DO {printf("{ /tlt%s exch store\n",$2->symbol);} 
 	     stmt {printf("} for\n");};
 
-stmt: COPEN stmtlist CCLOSE;	 
+stmt: COPEN stmtlist CCLOSE;
 
 expr: expr PLUS term { printf("add ");};
 expr: expr MINUS term { printf("sub ");};
 expr: term;
 
+term: term EQ factor { printf("eq\n");};
+term: term NOTEQ factor { printf("noteq\n");};
+term: term GTE factor { printf("ge \n");};
+term: term LTE factor { printf("le \n");};
+term: term LT factor { printf("lt \n");};
+term: term GT factor { printf("gt \n");};
 term: term TIMES factor { printf("mul ");};
 term: term DIV factor { printf("div ");};
 term: factor;
@@ -70,20 +78,12 @@ factor: PLUS atomic;
 factor: SIN factor { printf("sin ");};
 factor: COS factor { printf("cos ");};
 factor: SQRT factor { printf("sqrt ");};
-factor: LT factor { printf("lt ");};
-factor: GT factor { printf("gt ");};
-factor: EQ factor { printf("eq ");};
-factor: GREATEREQUAL factor { printf("ge ");};
-factor: LESSEQUAL factor { printf("le ");};
-factor: NOTEQUAL factor { printf("ne ");};
 factor: atomic;
 
 atomic: OPEN expr CLOSE;
 atomic: NUMBER {printf("%d ",$1);};
 atomic: FLOAT {printf("%f ",$1);};
 atomic: ID {printf("tlt%s ", $1->symbol);};
-atomic: OPENB {printf("{");};
-atomic: CLOSEB {printf("}");};
 
 
 %%

@@ -66,17 +66,18 @@
      IF = 282,
      ELSE = 283,
      THEN = 284,
-     TRUE = 285,
+     WHILE = 285,
      FALSE = 286,
-     RETURN = 287,
+     TRUE = 287,
      LT = 288,
      GT = 289,
      EQ = 290,
      OPENB = 291,
      CLOSEB = 292,
-     NOTEQ = 293,
+     RETURN = 293,
      LTE = 294,
-     GTE = 295
+     GTE = 295,
+     NOTEQ = 296
    };
 #endif
 /* Tokens.  */
@@ -107,27 +108,28 @@
 #define IF 282
 #define ELSE 283
 #define THEN 284
-#define TRUE 285
+#define WHILE 285
 #define FALSE 286
-#define RETURN 287
+#define TRUE 287
 #define LT 288
 #define GT 289
 #define EQ 290
 #define OPENB 291
 #define CLOSEB 292
-#define NOTEQ 293
+#define RETURN 293
 #define LTE 294
 #define GTE 295
+#define NOTEQ 296
 
 
 
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-#line 8 "turtle.y"
+#line 8 "turtle_jdk2pq.y"
 { int i; node *n; double d;}
 /* Line 1529 of yacc.c.  */
-#line 131 "turtle.tab.h"
+#line 133 "turtle_jdk2pq.tab.h"
 	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1
