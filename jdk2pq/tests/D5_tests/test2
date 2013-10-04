@@ -1,0 +1,9 @@
+//assigning a variable, and then delaring it
+VAR myvar;
+
+myvar=4;
+myvar=6;
+myvar=4;
+myvar=6;
+mynewvar=10;
+VAR mynewvar;

@@ -1,0 +1,12 @@
+//empty if/while statements
+VAR myvar;
+
+myvar=4;
+
+IF (myvar) {
+	WHILE() {
+
+	}
+} ELSE {
+	
+}

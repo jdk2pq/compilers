@@ -1,0 +1,11 @@
+//parentheses can't go around an assignment statement, nor can true or false be evaluated
+VAR myvar;
+VAR x;
+
+myvar = 5;
+
+x = (5 > 1);
+
+IF (myvar > 5) {
+	TURN 90;
+}

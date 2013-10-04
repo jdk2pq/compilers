@@ -1,0 +1,10 @@
+//using numbers in variable names
+VAR myvar;
+VAR x5;
+
+x5 = 4;
+myvar = x5;
+
+IF (myvar > x5) {
+	TURN 90;
+}
